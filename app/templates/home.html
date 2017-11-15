@@ -16,15 +16,25 @@
 
 <div>
   <div class="container CSHomeContainer">
-        <div class="row text-center">
-          <div class="col-md-4 offset-md-4">
-            <form action="{% url 'accounts:username_search_form' %}" method="post" class="form-inline my-2 my-lg-0">
-              {% csrf_token %}
-              <span class="">@</span><input class="form-control" type="text" required placeholder="Search Steem Username" aria-label="Search" name="cs_username_search">
-              <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
+    <div class="row text-center">
+      <div class="col-md-4 offset-md-4">
+        <form action="{% url 'accounts:username_search_form' %}" method="post" class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <span class="">@</span><input class="form-control" type="text" required placeholder="Search Steem Username" aria-label="Search" name="cs_username_search">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+
+        <ul>
+        {% for selfie_dict in dearjyoce_selfies %}
+          <li>
+            <h3><a href="https://steemit.com/contest/@papa-pepper/{{ selfie_dict.permlink }}" target="_blank">{{ selfie_dict.challenge }}</a></h3>
+            <p>{{ selfie_dict.image }}</p>
+            <img src="{{ selfie_dict.image }}" style="width: 300px; height: auto;">
+          </li>
+        {% endfor %}
+        </ul>
   </div>
 </div>
 {% endblock content %}
