@@ -133,6 +133,26 @@ papapepper_entries = [
         'permlink': 'the-daily-steemit-selfie-challenge-day-31-450-sbd-prize-pool-and-growing',
         'challenge': "DAY 31 - PLECOCTOMUS - DO YOU KNOW WHAT THAT FISH DOES?",
     },
+    {
+        'permlink': 'the-daily-steemit-selfie-challenge-day-32-460-sbd-prize-pool-and-growing',
+        'challenge': "DAY 32 - SUSPENDERS - THE SUSPENDS IS KILLING ME!",
+    },
+    {
+        'permlink': 'the-daily-steemit-selfie-challenge-day-33-475-sbd-prize-pool-and-growing',
+        'challenge': "DAY 33 - HAPPY CHIN FACE",
+    },
+    {
+        'permlink': 'the-daily-steemit-selfie-challenge-day-34-485-sbd-prize-pool-and-growing',
+        'challenge': "DAY 34 - BED HEAD",
+    },
+    {
+        'permlink': 'the-daily-steemit-selfie-challenge-day-35-500-sbd-prize-pool-and-growing',
+        'challenge': "DAY 35 - FEEL THE BURN!",
+    },
+    {
+        'permlink': 'the-daily-steemit-selfie-challenge-day-36-515-sbd-prize-pool-and-growing',
+        'challenge': "DAY 36 - DON’T HURT YOURSELF",
+    },
 ]
 
 
@@ -158,7 +178,7 @@ class HomeView(TemplateView):
             for comment in entry_comments:
                 author = comment['author']
 
-                if author == 'carrieallen':
+                if author == 'bien':
                     json_metadata = json.loads(comment['json_metadata'])
                     image_list = json_metadata.get('image')
 
