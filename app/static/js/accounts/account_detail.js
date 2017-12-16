@@ -16,23 +16,34 @@ function bindScroll(){
           $('.CSAccountLoadPostsSpinner').hide();
           $('.CSLoadPostsButtom').addClass('enabledLoad');
 
+          // Check applied tags to filter
           var tags_list = []
-
           $('.applied_tag_filters li').each(function(i, obj) {
             tags_list.push($(obj).data('tag'));
           });
 
+          // Check applied title search
+          var search_text = $('#id_title_search_field').val().toLowerCase();
+
           $('.CSEntriesList tr').each(function(i, obj) {
-            var hide = false;
+            var hide_by_tag = false;
 
             for (var tag_idx in tags_list) {
               if ($(obj).hasClass(tags_list[tag_idx]) == false) {
-                hide = true
+                hide_by_tag = true
               }
             }
 
-            if (hide == true) {
+            if (hide_by_tag == true) {
               $(obj).hide();
+            }
+
+            var title = $(obj).data('entry-title').toLowerCase();
+
+            if (search_text) {
+              if (!title.includes(search_text)) {
+                $(obj).hide();
+              }
             }
           });          
           
